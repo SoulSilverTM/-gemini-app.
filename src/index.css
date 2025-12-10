@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+    /* Frutiger Aero Palette */
+    --fa-blue-primary: #00C6FF;
+    --fa-blue-secondary: #0072FF;
+    --fa-green-primary: #96E6A1;
+    --fa-green-secondary: #D4FC79;
+    --fa-glass-border: rgba(255, 255, 255, 0.6);
+    --fa-glass-bg: rgba(255, 255, 255, 0.25);
+    --fa-glass-highlight: rgba(255, 255, 255, 0.8);
+    --fa-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #1a202c;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Frutiger Aero Glass Utilities */
+.hyper-glass {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glossy Shine Effect */
+.hyper-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0.05) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dark .hyper-glass {
+    background: linear-gradient(180deg,
+            rgba(15, 23, 42, 0.6) 0%,
+            rgba(15, 23, 42, 0.4) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Glossy Buttons */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Aurora Background Animation */
+@keyframes aurora-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.mesh-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* Day Mode: Bright Aurora */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: aurora-flow 15s ease infinite;
+    opacity: 0.8;
+    transition: opacity 0.5s ease, background 0.5s ease;
+}
+
+.dark .mesh-bg {
+    /* Night Mode: Midnight Aero */
+    background: linear-gradient(-45deg, #0f172a, #312e81, #4c1d95, #581c87);
+    background-size: 400% 400%;
+    opacity: 1;
+}
+
+.mesh-blob {
+    display: none;
+    /* Removing blobs for cleaner gradient */
+}
+
+/* Text Gradients */
+.text-gradient-ios {
+    background: linear-gradient(180deg, #FFFFFF 0%, #E0F2FE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Hover Effects */
+.glass-card-hover {
+    transition: all 0.3s ease;
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+}
